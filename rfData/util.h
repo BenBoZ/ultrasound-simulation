@@ -1,6 +1,7 @@
 #ifndef __UTIL_H__
 #define __UTIL_H__
 
+#undef M_PI
 #define M_PI 3.14159265358979323846264338327 
  
 #include <iostream>
