@@ -1,0 +1,7 @@
+Phantom geometry:0.1, 0.1, 0.1
+Density[kg/m^3]:1020
+Speed of sound[m/s]:1540
+Attenuation (a0, a1, a2):1.0, 1.0, 1.0
+Backscatterfile:my_bsc_file.dat
+Phantom filename:refPhantom.dat
+

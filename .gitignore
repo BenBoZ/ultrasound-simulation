@@ -1,6 +1,8 @@
 *.dat
 *.pyc
-*.txt
+
+# Temporary folder containing the build
 bld
+
+# Vi/Vim temporary files
 *.swp
-documentation
