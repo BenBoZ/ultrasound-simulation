@@ -15,3 +15,11 @@ Compiling
     cmake ..
     make
 
+Running
+=======
+It is not doing a lot now, but it is at least running something
+
+From within compiled bld folder (see steps above)
+
+    ./runAll.sh
+
