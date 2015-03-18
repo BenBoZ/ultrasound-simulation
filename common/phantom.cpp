@@ -12,9 +12,12 @@
 
 #include "./memory.h"
 
+
 #define Swap(a, b) temp = a; a = b; b = temp;
 
-using namespace std;
+using std::cout;
+using std::endl;
+
 
 phantom::phantom():buffer(NULL),
                    totalScatters(0),
@@ -50,9 +53,11 @@ void phantom::createUniformPhantom(const myVector& phansize,
     assert(buffer != NULL);
 
     /* initialize random seed: */
-    tr1::mt19937 eng(time(NULL));  // uniform random integer generatot
-    tr1::uniform_real<double> dist;
-    tr1::variate_generator<tr1::mt19937, tr1::uniform_real<double> > generator(eng, dist);
+    std::tr1::mt19937 eng(time(NULL));  // uniform random integer generatot
+    std::tr1::uniform_real<double> dist;
+    std::tr1::variate_generator<std::tr1::mt19937,
+                                std::tr1::uniform_real<double> >
+                                                          generator(eng, dist);
 
     for (int i = 0; i < totalScatters; i++) {
         buffer[i].x = generator()*phansize.x;
@@ -79,7 +84,7 @@ void phantom::createUniformPhantom(const myVector& phansize,
  * ^
  * */
 void phantom::readBscFromFile(char* fname) {
-    ifstream bscFile;
+    std::ifstream bscFile;
     bscFile.open(fname, std::ios::binary);
 
     if ( !bscFile.is_open() ) {
@@ -126,7 +131,7 @@ double phantom::giveBsc(double freq) {
  */
 int phantom::savePhantom(char *filename) {
     sortScatterer();
-    ofstream fpout(filename, ios::binary);
+    std::ofstream fpout(filename, std::ios::binary);
 
     if ( !fpout.is_open() ) {
         cout << "unable to create phantom file " << filename <<endl;
@@ -154,8 +159,8 @@ int phantom::savePhantom(char *filename) {
     /*!  This function reads in a phantom from a file created by savePhantom
      */
     int phantom::loadPhantom(char* filename) {
-    ifstream fpin;
-    fpin.open(filename, ios::binary);
+    std::ifstream fpin;
+    fpin.open(filename, std::ios::binary);
 
     if ( !fpin.is_open() ) {
     cout << "Error reading phantom file " << filename << std::endl;
