@@ -228,7 +228,7 @@ int main(int argc, char* argv[]) {
     fp.write(reinterpret_cast<char*>(imagSignal),
                          sizeof(double)*freqPoints*beamlines);
     fp.close();
-    delete realSignal;
-    delete imagSignal;
+    delete[] realSignal;
+    delete[] imagSignal;
     delete transducer;
 }
