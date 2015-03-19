@@ -1,19 +1,19 @@
-#ifndef __UTIL_H__
-#define __UTIL_H__
+#ifndef RFDATA_UTIL_H_
+#define RFDATA_UTIL_H_
 
 #undef M_PI
 #define M_PI 3.14159265358979323846264338327
 
-#include <math.h>
 #include <time.h>
-#include <complex>
 #include <math.h>
 #include <assert.h>
 
+#include <complex>
 #include <iostream>
 #include <fstream>
 
 typedef std::complex<double> cplx;
+
 const cplx cplxZero(0.0, 0.0);
 const cplx imUnit(0.0, 1.0);
 const cplx cplxOne(1.0, 1.0);
@@ -34,7 +34,7 @@ class fresnelInt {
  public:
   fresnelInt();
   ~fresnelInt();
-  cplx fastFresnel(double);
+  cplx fastFresnel(double x);
 
  private:
   cplx *fresBase;
@@ -45,4 +45,4 @@ class fresnelInt {
   int MAXIT, BASESIZE;
 };
 
-#endif
+#endif  // RFDATA_UTIL_H_
