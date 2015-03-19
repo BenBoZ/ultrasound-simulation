@@ -142,8 +142,7 @@ fieldBuffer::fieldBuffer(double f,
                                        target(ph),
                                        assumedSoundSpeed(speed),
                                        transducer(inputTrans),
-                                       phantomGap(gap)
-{
+                                       phantomGap(gap) {
     fres = new fresnelInt;
     myVector temp = target->getPhanSize();
 
@@ -314,8 +313,11 @@ void fieldBuffer::calculateBufferField(double freq) {
 
             // get another half of x by symmetry
             for (int xIndex=(xLenExtra+1)/2; xIndex < xLenExtra; xIndex++) {
-                singleRowTransField[xIndex] = singleRowTransField[xLenExtra-1-xIndex];
-                singleRowRecField[xIndex] = singleRowRecField[xLenExtra-1-xIndex];
+                singleRowTransField[xIndex] =
+                                    singleRowTransField[xLenExtra-1-xIndex];
+
+                singleRowRecField[xIndex] =
+                                      singleRowRecField[xLenExtra-1-xIndex];
             }
 
 
