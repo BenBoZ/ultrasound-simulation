@@ -190,7 +190,7 @@ int main(int argc, char* argv[]) {
     }
 
     /* ----------------[ SAVE OUTPUT ]--------------------------*/
-    ofstream fp(outrffile, ios::binary);
+    std::ofstream fp(outrffile, std::ios::binary);
 
     if ( !fp.is_open() ) {
            cout << "Failure to write RF data file named: "
