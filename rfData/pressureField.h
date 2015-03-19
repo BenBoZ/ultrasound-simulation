@@ -1,5 +1,5 @@
-#ifndef __PRESSUREFIELD_H__
-#define __PRESSUREFIELD_H__
+#ifndef __RF_PRESSUREFIELD_H__
+#define __RF_PRESSUREFIELD_H__
 
 #define FULL_APERTURE -1
 #include <stdio.h>
@@ -60,10 +60,7 @@ class array {
 };
 
 
-
-
 class fieldBuffer {  // incident pressure field associated with a phantom
-
     public:
         fieldBuffer(double f,
                     double sz,
@@ -96,6 +93,7 @@ class fieldBuffer {  // incident pressure field associated with a phantom
         // given a scatterer, return the coordinates relative to the transducer
         vector phantomCoordinateToPressureCoordinate(const scatterer& inVector,
                                                      int beamLine);
+
     private:
         double transFocus;  // Transmit focus
         vector size;       // the field size to be calculated
@@ -127,4 +125,4 @@ class fieldBuffer {  // incident pressure field associated with a phantom
 };
 
 
-#endif
+#endif  // __RF_PRESSUREFIELD_H__

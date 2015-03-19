@@ -1,10 +1,14 @@
+
+#include "./pressureField.h"
+
 #include <stdlib.h>
 #include <math.h>
-#include <iostream>
 #include <assert.h>
 #include <memory.h>
+
+#include <iostream>
+
 #include "./util.h"
-#include "./pressureField.h"
 #include "./phantom.h"
 
 // using namespace std;
