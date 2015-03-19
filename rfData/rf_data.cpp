@@ -164,7 +164,7 @@ int main(int argc, char* argv[]) {
             double rightEnd = leftEnd + beamWidth;
             // double beamCenter = (leftEnd + rightEnd)/2;
             scatterer *pos;
-            int cnt = target.getScattersBetween(leftEnd, rightEnd, pos);
+            int cnt = target.getScattersBetween(leftEnd, rightEnd, &pos);
 
             // loop through each scatterer in beam
             for (int j=0; j < cnt; j++) {

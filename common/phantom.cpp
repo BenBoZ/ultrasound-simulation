@@ -272,12 +272,12 @@ void phantom::displaceAnsys(double* u, double* v, int nSize) {
 /*!  This function gets scatterers located between two X coordinates.  It depends on the scatterers
  * contained in a phantom's scatterer array to be sorted by increasing x coordinate
  */
-int phantom::getScattersBetween(double start, double end, scatterer*& buf) {
+int phantom::getScattersBetween(double start, double end, scatterer** buf) {
     assert(start < end);
     int recStart = binSearch(start);
     int recEnd = binSearch(end);
     int recLen = recEnd - recStart;
-    buf    = &buffer[recStart];
+    *buf    = &buffer[recStart];
     return recLen;
 }
 
@@ -335,7 +335,7 @@ void phantom::quickSort(scatterer *A, int F, int L) {
             }
             return;
         }
-        partition(A, F, L, PivotIndex);
+        partition(A, F, L, &PivotIndex);
         quickSort(A, F, PivotIndex-1);
         quickSort(A, PivotIndex+1, L);
     }
@@ -343,7 +343,7 @@ void phantom::quickSort(scatterer *A, int F, int L) {
 
 /*!  A component of the quicksort algorithm
  */
-void phantom::partition(scatterer* A, int F, int L, int& PivotIndex) {
+void phantom::partition(scatterer* A, int F, int L, int* PivotIndex) {
     int pivotind = static_cast<int>( (F+L)/2);
     scatterer temp;
     Swap(A[F], A[pivotind]);
@@ -360,5 +360,5 @@ void phantom::partition(scatterer* A, int F, int L, int& PivotIndex) {
 
     Swap(A[F], A[LastS1]);
 
-    PivotIndex = LastS1;
+    *PivotIndex = LastS1;
 }
