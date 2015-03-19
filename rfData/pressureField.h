@@ -1,5 +1,5 @@
-#ifndef RF_PRESSUREFIELD_H
-#define RF_PRESSUREFIELD_H
+#ifndef RFDATA_PRESSUREFIELD_H_
+#define RFDATA_PRESSUREFIELD_H_
 
 #define FULL_APERTURE -1
 #include <stdio.h>
@@ -20,7 +20,7 @@ struct singleGeom {
 
 
 class array {
- friend class fieldBuffer;
+  friend class fieldBuffer;
 
  public:
   array(singleGeom, double, int, double);
@@ -125,4 +125,4 @@ class fieldBuffer {  // incident pressure field associated with a phantom
 };
 
 
-#endif  // RF_PRESSUREFIELD_H
+#endif  // RFDATA_PRESSUREFIELD_H_
