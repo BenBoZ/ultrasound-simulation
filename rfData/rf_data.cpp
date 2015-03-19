@@ -24,12 +24,10 @@ int main(int argc, char* argv[]) {
     vector step;
     int count, beamlines;
     double beamspacing, spacing, transfocus, maxfreq, beamWidth;
-    double machineSoundSpeed, phantomGap, samplingFrequency;
-    char phantomfile[60], outrffile[60], backscatterfile[60];
-    fresnelInt *fres;
+    double machineSoundSpeed, phantomGap;
+    char phantomfile[60], outrffile[60];
     array *transducer;
     int success;
-
 
     FILE *fpinput;
     cout << argv[1] << endl;
@@ -43,47 +41,58 @@ int main(int argc, char* argv[]) {
 
     while (fgetc(fpinput) != ':') {}
     success = fscanf(fpinput, "%lf, %lf", &geom.width, &geom.length);
+    assert(success == 2);
 
     while (fgetc(fpinput) != ':') {}
     success = fscanf(fpinput, "%lf, %d", &spacing, &count);
+    assert(success == 2);
 
     while (fgetc(fpinput) != ':') {}
     success = fscanf(fpinput, "%lf", &transfocus);
+    assert(success == 1);
     if (transfocus < 0) {
         cout << "Focusing disabled." << endl;
     }
+
     while (fgetc(fpinput) != ':') {}
     success = fscanf(fpinput, "%lf", &beamWidth);
+    assert(success == 1);
 
     while (fgetc(fpinput) != ':') {}
     success = fscanf(fpinput, "%lf, %lf, %lf", &step.x, &step.y, &step.z);
-
+    assert(success == 3);
 
     while (fgetc(fpinput) != ':') {}
     success = fscanf(fpinput, "%d", &beamlines);
+    assert(success == 1);
 
     while (fgetc(fpinput) != ':') {}
     success = fscanf(fpinput, "%lf", &beamspacing);
+    assert(success == 1);
 
     while (fgetc(fpinput) != ':') {}
     success = fscanf(fpinput, "%lf", &maxfreq);
+    assert(success == 1);
 
     cout << "The maximum simulated frequency is:  " << maxfreq << endl;
     while (fgetc(fpinput) != ':') {}
     success = fscanf(fpinput, "%s", phantomfile);
-
+    assert(success == 1);
 
     while (fgetc(fpinput) != ':') {}
     success = fscanf(fpinput, "%s", outrffile);
-
+    assert(success == 1);
 
     while (fgetc(fpinput) != ':') {}
     success = fscanf(fpinput, "%lf", &machineSoundSpeed);
+    assert(success == 1);
 
     while (fgetc(fpinput) != ':') {}
     success = fscanf(fpinput, "%lf", &phantomGap);
+    assert(success == 1);
 
     fclose(fpinput);
+
 
 
     // Load the phantom and generate the incident pressure field
@@ -153,7 +162,7 @@ int main(int argc, char* argv[]) {
             // left end, right end, and center of beam
             double leftEnd = i*beamspacing;
             double rightEnd = leftEnd + beamWidth;
-            double beamCenter = (leftEnd + rightEnd)/2;
+            // double beamCenter = (leftEnd + rightEnd)/2;
             scatterer *pos;
             int cnt = target.getScattersBetween(leftEnd, rightEnd, pos);
 

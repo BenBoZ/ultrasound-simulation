@@ -5,6 +5,7 @@
 #include <stdio.h>
 #include <assert.h>
 #include "./phantom.h"
+#include "./util.h"
 
 class array;
 class fieldBuffer;
@@ -68,7 +69,7 @@ class fieldBuffer {  // incident pressure field associated with a phantom
               phantom* ph,
               double speed,
               array* inputTrans,
-              double gap)
+              double gap);
   // constructor (transmit focus, beam width, grid step );
 
   ~fieldBuffer();  // destructor
