@@ -32,6 +32,8 @@ int main(int argc, char* argv[]) {
     while (fgetc(fpinput) != ':') {}
     fscanf(fpinput, "%d", &dispSize);
 
+    fclose(fpinput);
+
     phantom target;
     cout << "Pre Phantom File name is: " << inphanfile << endl;
     cout << "Output Phantom file name will be: " << outphanfile << endl;
@@ -49,6 +51,8 @@ int main(int argc, char* argv[]) {
     fpdisp.open(displfile, std::ios::binary);
     if ( !fpdisp.is_open() ) {
         cout << "Error! Can't find file " << displfile << endl;
+        delete[] u;
+        delete[] v;
         return -1;
     }
 
