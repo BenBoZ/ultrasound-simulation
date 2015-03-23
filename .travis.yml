@@ -5,6 +5,8 @@ os:
 env:
 - BUILD_TYPE=Debug
 - BUILD_TYPE=Release
+install:
+- sudo apt-get install -qq octave
 script:
 - mkdir -p bld
 - cd bld
