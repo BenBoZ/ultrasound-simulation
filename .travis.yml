@@ -1,0 +1,21 @@
+language: cpp
+env:
+  global:
+   - secure: "GOWvxp0cQVQKl53ka33Z8KIxHccQLq6pRgbXJsVszH0/USM89rikUXjeUWmgFJwBVV7lzJQqRBmHSI6o/GYMOVi+sfVd51CArMgMvlVohvQuMtlUzxIJ5S6gBitvhyqeNXDUGbEImPY0HCFfhEVb9YUEjWir63qY+3yyAJmlBIs="
+addons:
+  coverity_scan:
+    project:
+      name: "BenBoZ/ultrasound-simulation"
+      description: "Build submitted via Travis CI"
+    notification_email: false
+    build_command_prepend: "mkdir -p bld; cd bld; cmake .."
+    build_command:   "make -j4"
+    branch_pattern: master
+install:
+- sudo apt-get install -qq octave
+script:
+- mkdir -p bld
+- cd bld
+- cmake ..
+- make -j4
+- ./runAll.sh

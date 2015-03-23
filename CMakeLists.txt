@@ -1,11 +1,11 @@
-project(ultrasound-simulation)
+project (ultrasound-simulation)
  
-cmake_minimum_required(VERSION 3.1.0 FATAL_ERROR)
+cmake_minimum_required (VERSION 2.8.7 FATAL_ERROR)
  
 # Phantom class uses tr1/random, which is C++11
-set(CMAKE_CXX_STANDARD 11)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O3 -Wall -pedantic -Wextra")
+set (CMAKE_CXX_STANDARD 11)
+set (CMAKE_CXX_STANDARD_REQUIRED ON)
+set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O3 -Wall -pedantic -Wextra")
 
 include_directories ("${PROJECT_SOURCE_DIR}/common")
 include_directories ("${PROJECT_SOURCE_DIR}/rfData")
