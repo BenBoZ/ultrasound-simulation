@@ -1,16 +1,7 @@
 language: cpp
-os:
-- linux
-- osx
 env:
   global:
-   # The next declaration is the encrypted COVERITY_SCAN_TOKEN, created
-   #   via the "travis encrypt" command using the project repo's public key
    - secure: "GOWvxp0cQVQKl53ka33Z8KIxHccQLq6pRgbXJsVszH0/USM89rikUXjeUWmgFJwBVV7lzJQqRBmHSI6o/GYMOVi+sfVd51CArMgMvlVohvQuMtlUzxIJ5S6gBitvhyqeNXDUGbEImPY0HCFfhEVb9YUEjWir63qY+3yyAJmlBIs="
-
-- BUILD_TYPE=Debug
-- BUILD_TYPE=Release
-
 addons:
   coverity_scan:
     project:
@@ -20,13 +11,11 @@ addons:
     build_command_prepend: "mkdir -p bld; cd bld; cmake .."
     build_command:   "make -j4"
     branch_pattern: master
-
 install:
 - sudo apt-get install -qq octave
-
 script:
 - mkdir -p bld
 - cd bld
-- cmake .. -DCMAKE_BUILD_TYPE=$BUILD_TYPE
+- cmake ..
 - make -j4
 - ./runAll.sh
