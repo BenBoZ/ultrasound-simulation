@@ -11,7 +11,7 @@ using std::endl;
 
 
 int main(int argc, char* argv[]) {
-    myVector  inSize;
+    myVector  inSize(0.0, 0.0, 0.0);
     double density, c0, a0, a1, a2;
     char strPhanFile[60], strBscFile[60];
 

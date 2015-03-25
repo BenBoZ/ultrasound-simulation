@@ -15,6 +15,8 @@ struct myVector {
        double x;
        double y;
        double z;
+
+       myVector(double X, double Y, double Z) : x(X), y(Y), z(Z) {}
 };
 
 /*! \brief This class encompasses the attenuation, sound speed, and backscatter coefficients of an object to be imaged.

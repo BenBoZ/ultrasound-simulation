@@ -1,5 +1,8 @@
+#include <assert.h>
+
 #include <iostream>
 #include <fstream>
+
 #include "./phantom.h"
 
 using std::cout;
@@ -12,6 +15,7 @@ int main(int argc, char* argv[]) {
     }
     char inphanfile[60], outphanfile[60], displfile[60];
     int dispSize;
+    int success;
 
     FILE *fpinput;
 
@@ -21,16 +25,20 @@ int main(int argc, char* argv[]) {
     }
 
     while (fgetc(fpinput) != ':') {}
-    fscanf(fpinput, "%s", inphanfile);
+    success = fscanf(fpinput, "%s", inphanfile);
+    assert(success == 1);
 
     while (fgetc(fpinput) != ':') {}
-    fscanf(fpinput, "%s", outphanfile);
+    success = fscanf(fpinput, "%s", outphanfile);
+    assert(success == 1);
 
     while (fgetc(fpinput) != ':') {}
-    fscanf(fpinput, "%s", displfile);
+    success = fscanf(fpinput, "%s", displfile);
+    assert(success == 1);
 
     while (fgetc(fpinput) != ':') {}
-    fscanf(fpinput, "%d", &dispSize);
+    success = fscanf(fpinput, "%d", &dispSize);
+    assert(success == 1);
 
     fclose(fpinput);
 

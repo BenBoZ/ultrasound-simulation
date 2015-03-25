@@ -136,14 +136,17 @@ fieldBuffer::fieldBuffer(double f,
                          phantom* ph,
                          double speed,
                          array* inputTrans,
-                         double gap) : transFocus(f),
-                                       step(sp),
-                                       K(cplxZero),
-                                       target(ph),
-                                       assumedSoundSpeed(speed),
-                                       transducer(inputTrans),
-                                       phantomGap(gap) {
-    fres = new fresnelInt;
+                         double gap)
+    : transFocus(f),
+      step(sp),
+      K(cplxZero),
+      target(ph),
+      arrayLineSize(0),
+      arrayPlaneSize(0),
+      assumedSoundSpeed(speed),
+      transducer(inputTrans),
+      fres(new fresnelInt),
+      phantomGap(gap) {
     myVector temp = target->getPhanSize();
 
     // ensure a 1 mmm gap between phantom and transducer
@@ -198,6 +201,7 @@ fieldBuffer::~fieldBuffer() {
     delete[] singleRowTransField;
     delete[] singleRowRecField;
     delete[] arrayField;
+    delete fres;
 }
 
 /*!Calculate pressure field from a single rectangular element by accurate approximation

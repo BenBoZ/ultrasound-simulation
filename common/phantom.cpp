@@ -19,10 +19,20 @@ using std::cout;
 using std::endl;
 
 
-phantom::phantom():buffer(NULL),
-                   totalScatters(0),
-                   bscArray(NULL),
-                   bscFreqArray(NULL)
+phantom::phantom(): c0(0.0),
+                    a0(0.0),
+                    a1(0.0),
+                    a2(0.0),
+                    buffer(NULL),
+                    phanSize(0.0, 0.0, 0.0),
+                    /*phanSize.x(0),
+                    phanSize.y(0),
+                    phanSize.z(0),*/
+                    totalScatters(0),
+                    bscArray(NULL),
+                    bscFreqArray(NULL),
+                    numBsc(0),
+                    freqStep(0)
 {}
 
 
@@ -93,7 +103,8 @@ void phantom::readBscFromFile(char* fname) {
     }
 
     bscFile.read( reinterpret_cast<char*>(&(phantom::freqStep)), sizeof(double));
-    cout << "The frequency spacing is " << phantom::freqStep << std::endl;
+    cout << "The frequency spacing is "
+         << phantom::freqStep << std::endl;
     double tmp;
     bscFile.read( reinterpret_cast<char*>( &tmp    ), sizeof(double) );
     cout << "The number of backscatter coefficients read will be: "
