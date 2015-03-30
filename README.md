@@ -26,3 +26,13 @@ From within compiled bld folder (see steps above)
 
     ./runAll.sh
 
+License
+=======
+
+Note that this code is provided under a modified MIT license. In addition to the MIT
+license terms, the authors ask you to cite the following paper in all published
+work that uses this or derivatives of this work.
+
+    Yadong Li, James A. Zagzebski, ``A Frequency Domain Model for Generating B-Mode
+    Images with Array Transducers,'' IEEE Transactions on Ultrasonics,
+    Ferroelectrics, and Frequency Control, vol. 46, no. 3, May 1999.
