@@ -133,7 +133,7 @@ int main(int argc, char* argv[]) {
     vector fieldCenter;
     fieldCenter = pressure.giveCenter();
 
-    myVector phanSize;
+    myVector phanSize(0.0, 0.0, 0.0);
     phanSize = target.getPhanSize();
 
     // Need to be sure scatterers are sorted before imaging is performed

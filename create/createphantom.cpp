@@ -1,5 +1,6 @@
-#include <cstdlib>
+#include <assert.h>
 
+#include <cstdlib>
 #include <iostream>
 #include <fstream>
 #include <sstream>
@@ -11,8 +12,9 @@ using std::endl;
 
 
 int main(int argc, char* argv[]) {
-    myVector  inSize;
+    myVector  inSize(0.0, 0.0, 0.0);
     double density, c0, a0, a1, a2;
+    int success = 0;
     char strPhanFile[60], strBscFile[60];
 
     // TODO(Unknown): at the moment an empty feature,
@@ -32,22 +34,28 @@ int main(int argc, char* argv[]) {
     }
 
     while (fgetc(fpinput) != ':') {}
-    fscanf(fpinput, "%lf, %lf, %lf", &inSize.x, &inSize.y, &inSize.z);
+    success = fscanf(fpinput, "%lf, %lf, %lf", &inSize.x, &inSize.y, &inSize.z);
+    assert(success == 3);
 
     while (fgetc(fpinput) != ':') {}
-    fscanf(fpinput, "%lf", &density);
+    success = fscanf(fpinput, "%lf", &density);
+    assert(success == 1);
 
     while (fgetc(fpinput) != ':') {}
-    fscanf(fpinput, "%lf", &c0);
+    success = fscanf(fpinput, "%lf", &c0);
+    assert(success == 1);
 
     while (fgetc(fpinput) != ':') {}
-    fscanf(fpinput, "%lf, %lf, %lf", &a0, &a1, &a2);
+    success = fscanf(fpinput, "%lf, %lf, %lf", &a0, &a1, &a2);
+    assert(success == 3);
 
     while (fgetc(fpinput) != ':') {}
-    fscanf(fpinput, "%s", strBscFile);
+    success = fscanf(fpinput, "%s", strBscFile);
+    assert(success == 1);
 
     while (fgetc(fpinput) != ':') {}
-    fscanf(fpinput, "%s", strPhanFile);
+    success = fscanf(fpinput, "%s", strPhanFile);
+    assert(success == 1);
 
     cout << "The x size is " << inSize.x << endl;
     cout << "The y size is " << inSize.y << endl;
