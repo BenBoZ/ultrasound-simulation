@@ -102,7 +102,7 @@ void phantom::readBscFromFile(char* fname) {
         exit(EXIT_FAILURE);
     }
 
-    bscFile.read( reinterpret_cast<char*>(&(phantom::freqStep)), sizeof(double));
+    bscFile.read(reinterpret_cast<char*>(&(phantom::freqStep)), sizeof(double));
     cout << "The frequency spacing is "
          << phantom::freqStep << std::endl;
     double tmp;
