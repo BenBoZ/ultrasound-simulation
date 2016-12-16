@@ -1,6 +1,6 @@
 function binary2matrix
     disp('Starting...')
-    A0 = binary2matrix_internal('/home/ben/Programming/remedi/tst/sim/refRf2.dat');
+    A0 = binary2matrix_internal('./refRf2.dat');
 
 end
 
