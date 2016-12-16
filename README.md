@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/BenBoZ/ultrasound-simulation.svg?branch=master)](https://travis-ci.org/BenBoZ/ultrasound-simulation)
+[![Build Status](https://travis-ci.org/spoorcc/ultrasound-simulation.svg?branch=master)](https://travis-ci.org/spoorcc/ultrasound-simulation)
 [![Coverity Scan Build Status](https://scan.coverity.com/projects/4610/badge.svg)](https://scan.coverity.com/projects/4610")
 
 This program has 3 parts.  The first part creates a phantom file, which is
